@@ -4,12 +4,21 @@ import { connect } from 'react-redux'
 import {getSearchResults} from '../../redux/selectors'
 
 function ResultRow({result}) {
-	return <Link to="/detail">{result.name} {result.surname}</Link>
+	return (<div>
+		<img scr={result.photo} alt={result.surname}/>
+		<div>{result.name} {result.surname}</div>
+		<div>{result.birthYear}</div>
+		<Link to={`/detail/${result.id}`}>Zobrazit profil</Link>
+	</div>)
 }
 
 function Result({results}) {
-  return (
-    <div className='result-list'>{results.map(result => <ResultRow key={result.id} result={result} />)}</div>
+// TODO vyresit mnozne/jednotne cislo
+	return (
+		<React.Fragment>
+			<div>Nalezeni {results.length} politici</div>
+			<div className='result-list'>{results.map(result => <ResultRow key={result.id} result={result} />)}</div>
+		</React.Fragment>
   )
 }
 

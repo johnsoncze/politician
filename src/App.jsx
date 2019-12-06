@@ -17,7 +17,7 @@ function App() {
       <div className='body'>
         <Switch>
           <Route path="/" component={Homepage} exact />
-          <Route path="/detail" component={Detail} />
+          <Route path="/detail/:query" component={Detail} />
           <Route path="/o-projektu" component={AboutUs} />
           <Route path="/pro-media" component={Media} />
           <Route path="/search" component={Search} />
