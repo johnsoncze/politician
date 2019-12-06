@@ -16,8 +16,8 @@ function SearchBar({setSearchQUery, search}) {
   );
 }
 
-const mapStateToProsp = state => ({
+const mapStateToProps = state => ({
 	query: getSearchQuery(state),
 })
 
-export default connect(mapStateToProsp, {setSearchQUery, search})(SearchBar);
+export default connect(mapStateToProps, {setSearchQUery, search})(SearchBar);

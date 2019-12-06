@@ -13,8 +13,8 @@ function Result({results}) {
   )
 }
 
-const mapStateToProsp = state => ({
+const mapStateToProps = state => ({
 	results: getSearchResults(state),
 })
 
-export default connect(mapStateToProsp)(Result);
+export default connect(mapStateToProps)(Result);
