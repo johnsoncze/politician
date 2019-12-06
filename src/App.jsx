@@ -5,6 +5,7 @@ import Footer from './components/footer/footer'
 import Header from './components/header/header'
 import AboutUs from './pages/about'
 import Detail from './pages/detail'
+import Error from './pages/error'
 import Homepage from './pages/homepage'
 import Media from './pages/media'
 import Search from './pages/search'
@@ -20,6 +21,7 @@ function App() {
           <Route path="/o-projektu" component={AboutUs} />
           <Route path="/pro-media" component={Media} />
           <Route path="/search" component={Search} />
+          <Route component={Error} />
         </Switch>
       </div>
       <Footer />
