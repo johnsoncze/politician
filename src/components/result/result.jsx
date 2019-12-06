@@ -5,8 +5,8 @@ import {getSearchResults} from '../../redux/selectors'
 
 function ResultRow({result}) {
 	return (<div>
-		<img scr={result.photo} alt={result.surname}/>
-		<div>{result.name} {result.surname}</div>
+		<img src={result.photoUrl} alt={result.lastName}/>
+		<div>{result.firstName} {result.lastName}</div>
 		<div>{result.birthYear}</div>
 		<Link to={`/detail/${result.id}`}>Zobrazit profil</Link>
 	</div>)

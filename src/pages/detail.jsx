@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import {loadDetail} from '../redux/actions'
+import {getFullName} from '../redux/selectors'
 
-function Detail() {
+function Detail(props) {
+  useEffect(() => {
+    props.loadDetail(props.match.params.query)
+  });
   return (
-    <div>Detail politika</div>
-  )
+    <div>
+			<div>{props.fullname}</div>
+		</div>
+  );
 }
 
-export default Detail;
+const mapStateToProps = state => ({
+	fullname: getFullName(state),
+})
+
+export default connect(mapStateToProps, {loadDetail})(Detail);

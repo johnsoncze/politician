@@ -1,3 +1,5 @@
 export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
 export const SEARCH = 'SEARCH';
 export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS'
+export const LOAD_DETAIL = 'LOAD_DETAIL'
+export const SET_DETAIL = 'SET_DETAIL'

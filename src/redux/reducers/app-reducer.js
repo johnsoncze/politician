@@ -1,8 +1,9 @@
-import { SET_SEARCH_QUERY, SET_SEARCH_RESULTS } from "../action-types";
+import { SET_SEARCH_QUERY, SET_SEARCH_RESULTS, SET_DETAIL } from "../action-types";
 
 const initialState = {
 	searchQuery: '',
 	searchResults: [],
+	detail: {},
 };
 
 export default function(state = initialState, action) {
@@ -19,6 +20,13 @@ export default function(state = initialState, action) {
       return {
         ...state,
         searchResults: results,
+      };
+    }
+    case SET_DETAIL: {
+			const { detail } = action.payload;
+      return {
+        ...state,
+        detail,
       };
     }
     default:

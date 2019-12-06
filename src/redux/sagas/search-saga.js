@@ -1,7 +1,7 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects'
 
-import {SEARCH} from '../action-types'
-import {setSearchResults} from '../actions'
+import {SEARCH, LOAD_DETAIL} from '../action-types'
+import {setSearchResults, setDetail} from '../actions'
 import {getSearchQuery} from '../selectors'
 import API from '../../services/api'
 
@@ -9,13 +9,16 @@ function* handleSearch(action) {
 	const query = yield select(getSearchQuery)
 	const result = yield call(API.search, query)
 	yield put(setSearchResults(result))
-	console.log(action)
-	console.log(query)
-	console.log(result)
+}
+
+function* handleLoadDetail(action) {
+	const detail = yield call(API.fetchDetail, action.payload.id)
+	yield put(setDetail(detail))
 }
 
 function* searchSaga() {
   yield takeLatest(SEARCH, handleSearch);
+  yield takeLatest(LOAD_DETAIL, handleLoadDetail);
 }
 
 export default searchSaga;
