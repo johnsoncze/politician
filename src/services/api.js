@@ -1,6 +1,6 @@
 export default {
 	search: async (query) => {
-		const response = await fetch(new Request(`https://localhost:5001/person/search/${query}`, {
+		const response = await fetch(new Request(`${process.env.REACT_APP_BASE_API_URL}/person/search/${query}`, {
 			method: 'GET',
 			mode: 'cors',
 			redirect: 'follow',
@@ -12,7 +12,7 @@ export default {
 		return response.json()
 	},
 	fetchDetail: async (id) => {
-		const response = await fetch(new Request(`https://localhost:5001/person/detail/${id}`, {
+		const response = await fetch(new Request(`${process.env.REACT_APP_BASE_API_URL}/person/detail/${id}`, {
 			method: 'GET',
 			mode: 'cors',
 			redirect: 'follow',
