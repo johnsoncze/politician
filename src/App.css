@@ -1,4 +1,105 @@
+html, body, canvas, dd, div, dl, fieldset, figcaption, figure, footer, form,
+h1, h2, h3, h4, h5, h6, address, article, aside, audio, blockquote, header,
+hr, ol, output, p, pre, section, table, tfoot, tbody, thead, ul,
+video, legend, time, embed, output, iframe {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+article, aside, figcaption, figure, footer, header, nav, section,
+details, summary, main {
+  display: block;
+}
+
+b, big, i, small, tt, abbr, acronym, cite, code, dfn, em, kbd, button, input,
+label, select, textarea, optgroup, small, strike, mark, strong, samp, var, a,
+bdo, br, img, map, object, q, span, sub, sup {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0;
+}
+
+audio, canvas, progress, video {
+  display: inline-block;
+}
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+}
+
+textarea {
+  display: block;
+}
+
+input {
+  line-height: normal;
+}
+
+img {
+  border: 0;
+}
+
+ul, ol, dl {
+  list-style: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.searchBar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+
+.searchBar-input {
+  width: 600px;
+  height: 100%;
+  border: 1px solid #000;
+  border-right: 0;
+  border-radius: 20px 0 0 20px;
+  box-sizing: border-box;
+}
+.searchBar-button {
+  padding: 8px 18px;
+  max-height: 40px;
+  border-radius: 0 20px 20px 0;
+  background-color: #307abe;
+  color: #ffffff;
+  font-family: "Source Serif Pro";
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 7 1 auto;
+  text-align: left;
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   text-align: center;
 }
 
@@ -19,4 +120,69 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  box-shadow: inset 0 -1px 0 #e5e5e5;
+}
+
+.header-wrapper > * {
+  position: relative;
+  margin-left: 30px;
+  opacity: 0.8;
+  color: #000000;
+  font-family: "Source Serif Pro";
+  font-size: 17px;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+.header-wrapper > a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #E5E5E5;
+}
+
+.result-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  background: #1E1E1E;
+}
+
+.footer .footer-header {
+  color: #fff;
+}
+
+.footer-wrapper {
+  max-width: 270px;
+  margin-left: 30px;
+  color: #C8C8C8;
+  text-align: left;
+}
+
+.footer-wrapper > * {
+  margin-bottom: 20px;
+}
+
+
+.homepage-logo {
+
+}
+
+.homepage-perex {
+  margin: 20px 0 50px;
 }
