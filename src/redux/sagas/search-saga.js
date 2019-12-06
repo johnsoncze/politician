@@ -7,8 +7,8 @@ import API from '../../services/api'
 
 function* handleSearch(action) {
 	const query = yield select(getSearchQuery)
-	const result = yield call(API.search, query)
-	yield put(setSearchResults(result))
+	const {persons} = yield call(API.search, query)
+	yield put(setSearchResults(persons))
 }
 
 function* handleLoadDetail(action) {

@@ -4,6 +4,7 @@ import {loadDetail} from '../redux/actions'
 import {getFullName} from '../redux/selectors'
 
 function Detail(props) {
+	// TODO pridat loading state
   useEffect(() => {
     props.loadDetail(props.match.params.query)
   });
