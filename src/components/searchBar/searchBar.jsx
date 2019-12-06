@@ -4,6 +4,7 @@ import {setSearchQuery, search} from '../../redux/actions'
 import {getSearchQuery} from '../../redux/selectors'
 import Result from '../result/result'
 
+// TODO reagovat na submit entrem
 function SearchBar({setSearchQuery, search}) {
   return (
     <div>

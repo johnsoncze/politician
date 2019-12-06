@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchBar from '../components/searchBar/searchBar'
 
+// TODO loading pri vyhledavani
 function Homepage() {
   return (
     <div>

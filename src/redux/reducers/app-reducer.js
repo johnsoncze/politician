@@ -1,9 +1,16 @@
-import { SET_SEARCH_QUERY, SET_SEARCH_RESULTS, SET_DETAIL } from "../action-types";
+import {
+	SET_SEARCH_QUERY,
+	SET_SEARCH_RESULTS,
+	SET_DETAIL,
+	SET_LOADING_DETAIL_START,
+	SET_LOADING_DETAIL_END,
+} from "../action-types";
 
 const initialState = {
 	searchQuery: '',
 	searchResults: [],
 	detail: {},
+	loadingDetail: false,
 };
 
 export default function(state = initialState, action) {
@@ -27,6 +34,18 @@ export default function(state = initialState, action) {
       return {
         ...state,
         detail,
+      };
+    }
+    case SET_LOADING_DETAIL_START: {
+      return {
+        ...state,
+        loadingDetail: true,
+      };
+    }
+    case SET_LOADING_DETAIL_END: {
+      return {
+        ...state,
+        loadingDetail: false,
       };
     }
     default:
