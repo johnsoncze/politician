@@ -1,6 +1,5 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom'
-import './App.css';
 import Footer from './components/footer/footer'
 import Header from './components/header/header'
 import AboutUs from './pages/about'
@@ -9,6 +8,8 @@ import Error from './pages/error'
 import Homepage from './pages/homepage'
 import Media from './pages/media'
 import Search from './pages/search'
+
+import './App.scss';
 
 function App() {
   return (
