@@ -1,24 +1,28 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
-import {setSearchQuery, search} from '../../redux/actions'
-import {getSearchQuery} from '../../redux/selectors'
-import Result from '../result/result'
+import { setSearchQuery, search } from '../../redux/actions'
+import { getSearchQuery } from '../../redux/selectors'
 
-// TODO reagovat na submit entrem
-function SearchBar({setSearchQuery, search}) {
+function SearchBar({ setSearchQuery, search, query }) {
+  const onSubmit = useCallback((e) => {
+    e.preventDefault()
+    search()
+  }, [search])
+  const onChange = useCallback((event) => {
+    setSearchQuery(event.target.value)
+  }, [setSearchQuery])
   return (
-    <div>
+    <form onSubmit={onSubmit}>
       <div className="searchBar-wrapper">
-        <input className='searchBar-input' onChange={(event) => setSearchQuery(event.target.value)}></input>
-        <button className='searchBar-button' onClick={search}>Hledat Politika/čku</button>
+        <input className='searchBar-input' onChange={onChange} value={query}></input>
+        <button type='submit' className='searchBar-button'>Hledat Politika/čku</button>
       </div>
-      <Result />
-    </div>
+    </form>
   );
 }
 
 const mapStateToProps = state => ({
-	query: getSearchQuery(state),
+  query: getSearchQuery(state),
 })
 
-export default connect(mapStateToProps, {setSearchQuery, search})(SearchBar);
+export default connect(mapStateToProps, { setSearchQuery, search })(SearchBar);

@@ -3,14 +3,17 @@ import {
 	SET_SEARCH_RESULTS,
 	SET_DETAIL,
 	SET_LOADING_DETAIL_START,
-	SET_LOADING_DETAIL_END,
+  SET_LOADING_DETAIL_END,
+  SET_SEARCH_END,
+  SET_SEARCH_START,
 } from "../action-types";
 
 const initialState = {
 	searchQuery: '',
-	searchResults: [],
+	searchResults: null,
 	detail: {},
 	loadingDetail: false,
+	loadingSearch: false,
 };
 
 export default function(state = initialState, action) {
@@ -46,6 +49,18 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loadingDetail: false,
+      };
+    }
+    case SET_SEARCH_START: {
+      return {
+        ...state,
+        loadingSearch: true,
+      };
+    }
+    case SET_SEARCH_END: {
+      return {
+        ...state,
+        loadingSearch: false,
       };
     }
     default:

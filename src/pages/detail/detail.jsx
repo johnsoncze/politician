@@ -23,7 +23,7 @@ function Detail(props) {
   return (
 		<React.Fragment>
 			{props.isLoading && <LoadingBar />}
-			{!props.isLoading && 
+			{!props.isLoading &&
         <React.Fragment>
           <div className={styles.header}>
             <div>{props.fullname}</div>
@@ -51,7 +51,7 @@ function Detail(props) {
                   <React.Fragment>
                     {props.roles && props.roles.map((role, i) => <TableRow name={role.name} value={role.organization} key={i} />)}
                   </React.Fragment>
-                </div> 
+                </div>
                 <div className={styles.detailBox}>
                   <h2>Sponzorstvi</h2>
                   <React.Fragment>

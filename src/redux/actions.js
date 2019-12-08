@@ -1,6 +1,8 @@
 import {
 	SET_SEARCH_QUERY,
-	SEARCH,
+  SEARCH,
+  SET_SEARCH_START,
+  SET_SEARCH_END,
 	SET_SEARCH_RESULTS,
 	LOAD_DETAIL,
 	SET_DETAIL,
@@ -46,4 +48,12 @@ export const loadingDetailStarted = () => ({
 
 export const loadingDetailEnded = () => ({
 	type: SET_LOADING_DETAIL_END,
+});
+
+export const searchStarted = () => ({
+	type: SET_SEARCH_START,
+});
+
+export const searchEnded = () => ({
+	type: SET_SEARCH_END,
 });

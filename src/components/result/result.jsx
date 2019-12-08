@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
-import {getSearchResults} from '../../redux/selectors'
+import {getSearchResults, isSearchLoading} from '../../redux/selectors'
+import LoadingBar from '../loadingBar/loadingBar'
 
 function ResultRow({result}) {
 	return (<div>
@@ -12,18 +13,28 @@ function ResultRow({result}) {
 	</div>)
 }
 
-function Result({results}) {
+function EmptyState({result}) {
+	return (<div>¯\_(ツ)_/¯ Tak toho tu nemame ¯\_(ツ)_/¯</div>)
+}
+
+function Result({results, loading}) {
 // TODO vyresit mnozne/jednotne cislo
 	return (
 		<React.Fragment>
-      {!!results.length && <div>Nalezeni {results.length} politici</div>}
-			<div className='result-list'>{results.map(result => <ResultRow key={result.id} result={result} />)}</div>
+      {loading && <LoadingBar />}
+      {!loading && results && results.length === 0 && <EmptyState />}
+      {!loading && results && !!results.length &&
+        <div>
+          <div>Nalezeni {results.length} politici</div>
+          <div className='result-list'>{results.map(result => <ResultRow key={result.id} result={result} />)}</div>
+        </div>}
 		</React.Fragment>
   )
 }
 
 const mapStateToProps = state => ({
-	results: getSearchResults(state),
+  results: getSearchResults(state),
+  loading: isSearchLoading(state),
 })
 
 export default connect(mapStateToProps)(Result);
