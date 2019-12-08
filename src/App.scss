@@ -1,17 +1,13 @@
 @import './assets/styles/vendor.scss';
 
 .body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 7 1 auto;
+  margin: 0 auto;
   text-align: left;
 }
 
 .App {
   display: flex;
   flex-direction: column;
-  height: 100%;
   text-align: center;
 }
 

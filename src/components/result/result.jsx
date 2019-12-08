@@ -16,7 +16,7 @@ function Result({results}) {
 // TODO vyresit mnozne/jednotne cislo
 	return (
 		<React.Fragment>
-			<div>Nalezeni {results.length} politici</div>
+      {!!results.length && <div>Nalezeni {results.length} politici</div>}
 			<div className='result-list'>{results.map(result => <ResultRow key={result.id} result={result} />)}</div>
 		</React.Fragment>
   )
