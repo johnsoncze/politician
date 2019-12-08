@@ -32,9 +32,10 @@ function WidgetInsolvency(insolvency) {
 }
 
 function Detail(props) {
+  const {loadDetail, match: { params: {id} } } = props
   useEffect(() => {
-    props.loadDetail(props.match.params.query)
-  }, []);
+    loadDetail(id)
+  }, [loadDetail, id]);
   return (
 		<React.Fragment>
 			{props.isLoading && <LoadingBar />}

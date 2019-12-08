@@ -1,3 +1,5 @@
+import {createSelector} from 'reselect'
+
 export const getSearchQuery = store => store.app.searchQuery
 export const getSearchResults = store => store.app.searchResults
 export const isSearchLoading = store => store.app.loadingSearch
@@ -32,12 +34,16 @@ const groupByYear = (data) => {
   })
 }
 
-export const getDonations = store => groupByYear(getDetailData(store).donations)
+export const getDonationsRaw = store => getDetailData(store).donations
 
-export const getRoles = store => {
-  const detailData = getDetailData(store).roles
-  for(let i in detailData) {
-    detailData[i].year = detailData[i].startDate.substring(0,4)
-  }
-  return groupByYear(detailData)
-}
+export const getDonations = createSelector(getDonationsRaw, (donations) => groupByYear(donations))
+
+export const getRolesRaw = store => getDetailData(store).roles
+
+export const getRoles = createSelector(getRolesRaw, (roles) => {
+  const rolesMap = roles.map((role) => ({
+    ...role,
+    year: role.startDate.substring(0,4)
+  }))
+  return groupByYear(rolesMap)
+})
