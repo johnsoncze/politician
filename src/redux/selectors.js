@@ -41,6 +41,7 @@ export const getDonations = createSelector(getDonationsRaw, (donations) => group
 export const getRolesRaw = store => getDetailData(store).roles
 
 export const getRoles = createSelector(getRolesRaw, (roles) => {
+  if (!roles) return []
   const rolesMap = roles.map((role) => ({
     ...role,
     year: role.endDate ? role.endDate.substring(0,4) : 9999
