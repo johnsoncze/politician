@@ -1,4 +1,5 @@
 import React from 'react'
+import {createStructuredSelector} from 'reselect'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {getSearchResults, isSearchLoading} from '../../redux/selectors'
@@ -32,9 +33,9 @@ function Result({results, loading}) {
   )
 }
 
-const mapStateToProps = state => ({
-  results: getSearchResults(state),
-  loading: isSearchLoading(state),
+const mapStateToProps = createStructuredSelector({
+  results: getSearchResults,
+  loading: isSearchLoading,
 })
 
 export default connect(mapStateToProps)(Result);

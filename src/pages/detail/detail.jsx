@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import {createStructuredSelector} from 'reselect'
 import { connect } from 'react-redux'
 import {loadDetail} from '../../redux/actions'
 import {getFullName, isDetailLoading, getDescription, getRoles, getDonations} from '../../redux/selectors'
@@ -67,12 +68,12 @@ function Detail(props) {
   );
 }
 
-const mapStateToProps = state => ({
-	fullname: getFullName(state),
-  isLoading: isDetailLoading(state),
-  description: getDescription(state),
-  roles: getRoles(state),
-  donations: getDonations(state),
+const mapStateToProps = createStructuredSelector({
+	fullname: getFullName,
+  isLoading: isDetailLoading,
+  description: getDescription,
+  roles: getRoles,
+  donations: getDonations,
 })
 
 export default connect(mapStateToProps, {loadDetail})(Detail);
