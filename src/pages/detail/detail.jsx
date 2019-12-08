@@ -68,7 +68,7 @@ function Detail(props) {
                     {props.roles && props.roles.map((group, index) => {
                       return (
                         <div key={index}>
-                          <div>{group.year}</div>
+                          <div>{group.year === 9999 ? 'Dosud' : group.year}</div>
                           {group.items.map((item, index) => <TableRow name={item.name} value={item.organization} key={index}/>)}
                         </div>
                       )

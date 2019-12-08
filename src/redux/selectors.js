@@ -43,7 +43,7 @@ export const getRolesRaw = store => getDetailData(store).roles
 export const getRoles = createSelector(getRolesRaw, (roles) => {
   const rolesMap = roles.map((role) => ({
     ...role,
-    year: role.startDate.substring(0,4)
+    year: role.endDate ? role.endDate.substring(0,4) : 9999
   }))
   return groupByYear(rolesMap)
 })
