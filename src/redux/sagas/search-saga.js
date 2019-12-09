@@ -11,6 +11,7 @@ import {
 } from '../actions'
 import {getSearchQuery} from '../selectors'
 import API from '../../services/api'
+import { push } from 'connected-react-router'
 
 function* handleSearch(action) {
   const query = yield select(getSearchQuery)
@@ -19,6 +20,7 @@ function* handleSearch(action) {
     return
   }
   yield put(searchStarted())
+  yield put(push('/'))
   try {
     const {persons} = yield call(API.search, query)
     yield put(setSearchResults(persons))
