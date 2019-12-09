@@ -20,7 +20,7 @@ function TableRow(role) {
 function WidgetInsolvency(insolvency) {
   return (
     <div>
-      <div>je věřitelem</div>
+      <div>je {insolvency.title}</div>
       <div>
         <div>jako fyzická osoba</div>
         <div>{insolvency.personalInsolvency.count}</div>
@@ -92,9 +92,9 @@ function Detail(props) {
                   <h2>Insolvence</h2>
                   {props.personalInsolvency && props.companyInsolvency &&
                     <React.Fragment>
-                      <WidgetInsolvency personalInsolvency={props.personalInsolvency.creditor} companyInsolvency={props.companyInsolvency.creditor}/>
-                      <WidgetInsolvency personalInsolvency={props.personalInsolvency.debtor} companyInsolvency={props.companyInsolvency.debtor}/>
-                      <WidgetInsolvency personalInsolvency={props.personalInsolvency.bailiff} companyInsolvency={props.companyInsolvency.bailiff}/>
+                      <WidgetInsolvency title='věřitelem' personalInsolvency={props.personalInsolvency.creditor} companyInsolvency={props.companyInsolvency.creditor}/>
+                      <WidgetInsolvency title='dlužníkem' personalInsolvency={props.personalInsolvency.debtor} companyInsolvency={props.companyInsolvency.debtor}/>
+                      <WidgetInsolvency title='insolvenčním správcem' personalInsolvency={props.personalInsolvency.bailiff} companyInsolvency={props.companyInsolvency.bailiff}/>
                     </React.Fragment>}
                 </div>
               </div>
