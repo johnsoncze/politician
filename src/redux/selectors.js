@@ -13,6 +13,17 @@ export const getFullName = store => {
 	return `${detail.titlePrefix} ${detail.firstName} ${detail.lastName} ${detail.titleSuffix}`.trim() // TODO lip naformatovat
 }
 
+export const getBirthYear = store => {
+  const {birthDate} = getDetailData(store)
+  if (!birthDate) return ''
+	return (new Date(birthDate)).getFullYear()
+}
+
+export const getCurrentParty = store => {
+  const {currentParty} = getDetailData(store)
+  return currentParty
+}
+
 export const getDescription = store => {
   return getDetailData(store).description
 }

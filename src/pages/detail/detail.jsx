@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import {createStructuredSelector} from 'reselect'
 import { connect } from 'react-redux'
 import {loadDetail} from '../../redux/actions'
-import {getFullName, isDetailLoading, getDescription, getRoles, getDonations, getPersonalInsolvency, getCompanyInsolvency} from '../../redux/selectors'
+import {getFullName, getBirthYear, isDetailLoading, getDescription, getRoles, getDonations, getPersonalInsolvency, getCompanyInsolvency, getCurrentParty} from '../../redux/selectors'
 import LoadingBar from '../../components/loadingBar/loadingBar'
 import styles from './detail.module.scss';
 
@@ -43,6 +43,8 @@ function Detail(props) {
         <React.Fragment>
           <div className={styles.header}>
             <div>{props.fullname}</div>
+            <div>*{props.birthYear}</div>
+            <div>{props.currentParty}</div>
           </div>
           <div className={styles.body}>
             <div className={styles.menu}>menu</div>
@@ -108,6 +110,8 @@ function Detail(props) {
 
 const mapStateToProps = createStructuredSelector({
 	fullname: getFullName,
+	birthYear: getBirthYear,
+	currentParty: getCurrentParty,
   isLoading: isDetailLoading,
   description: getDescription,
   roles: getRoles,

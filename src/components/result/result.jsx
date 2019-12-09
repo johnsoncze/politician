@@ -10,6 +10,7 @@ function ResultRow({result}) {
 		<img src={result.photoUrl} alt={result.lastName}/>
 		<div>{result.firstName} {result.lastName}</div>
 		<div>{result.birthYear}</div>
+		<div>{result.currentParty}</div>
 		<Link to={`/detail/${result.id}`}>Zobrazit profil</Link>
 	</div>)
 }
