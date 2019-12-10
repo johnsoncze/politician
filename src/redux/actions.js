@@ -7,7 +7,8 @@ import {
 	LOAD_DETAIL,
 	SET_DETAIL,
 	SET_LOADING_DETAIL_END,
-	SET_LOADING_DETAIL_START,
+  SET_LOADING_DETAIL_START,
+  SET_DETAIL_NEWS,
 } from "./action-types";
 
 export const setSearchQuery = query => ({
@@ -56,4 +57,11 @@ export const searchStarted = () => ({
 
 export const searchEnded = () => ({
 	type: SET_SEARCH_END,
+});
+
+export const setDetailNews = news => ({
+  type: SET_DETAIL_NEWS,
+  payload: {
+    news
+  }
 });

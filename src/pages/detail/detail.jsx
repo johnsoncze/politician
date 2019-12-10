@@ -2,8 +2,19 @@ import React, { useEffect } from 'react'
 import {createStructuredSelector} from 'reselect'
 import { connect } from 'react-redux'
 import {loadDetail} from '../../redux/actions'
-import {getFullName, getBirthYear, isDetailLoading, getDescription, getRoles, getDonations, getPersonalInsolvency, getCompanyInsolvency, getCurrentParty} from '../../redux/selectors'
+import {
+  getFullName,
+  getBirthYear,
+  isDetailLoading,
+  getDescription,
+  getRoles,
+  getDonations,
+  getPersonalInsolvency,
+  getCompanyInsolvency,
+  getCurrentParty,
+} from '../../redux/selectors'
 import LoadingBar from '../../components/loadingBar/loadingBar'
+import NewsWidget from '../../components/newsWidget/newsWidget'
 import styles from './detail.module.scss';
 
 function TableRow(role) {
@@ -98,6 +109,9 @@ function Detail(props) {
                       <WidgetInsolvency title='dlužníkem' personalInsolvency={props.personalInsolvency.debtor} companyInsolvency={props.companyInsolvency.debtor}/>
                       <WidgetInsolvency title='insolvenčním správcem' personalInsolvency={props.personalInsolvency.bailiff} companyInsolvency={props.companyInsolvency.bailiff}/>
                     </React.Fragment>}
+                </div>
+                <div className={styles.detailBox}>
+                  <NewsWidget />
                 </div>
               </div>
             </div>

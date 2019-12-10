@@ -8,6 +8,7 @@ import {
   loadingDetailEnded,
   searchEnded,
   searchStarted,
+  setDetailNews,
 } from '../actions'
 import {getSearchQuery} from '../selectors'
 import API from '../../services/api'
@@ -36,6 +37,8 @@ function* handleLoadDetail(action) {
   try {
     const detail = yield call(API.fetchDetail, action.payload.id)
     yield put(setDetail(detail))
+    const {news} = yield call(API.fetchNews, action.payload.id)
+    yield put(setDetailNews(news))
   } catch (error) {
     // TODO asi vymyslet nejaky jednotny error handling idealne i s designem
   }

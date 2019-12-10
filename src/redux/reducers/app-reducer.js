@@ -6,12 +6,14 @@ import {
   SET_LOADING_DETAIL_END,
   SET_SEARCH_END,
   SET_SEARCH_START,
+  SET_DETAIL_NEWS,
 } from "../action-types";
 
 const initialState = {
 	searchQuery: '',
 	searchResults: null,
 	detail: {},
+	detailNews: [],
 	loadingDetail: false,
 	loadingSearch: false,
 };
@@ -61,6 +63,13 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loadingSearch: false,
+      };
+    }
+    case SET_DETAIL_NEWS: {
+			const { news } = action.payload;
+      return {
+        ...state,
+        detailNews: news,
       };
     }
     default:
