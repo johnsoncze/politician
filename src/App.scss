@@ -1,8 +1,17 @@
 @import './assets/styles/vendor.scss';
 
+h1 {
+  @include headerTitle;
+}
+
+h2 {
+  @include condensedTitle;
+}
+
 .body {
   margin: 0 auto;
   text-align: left;
+  @include regularText;
 }
 
 .App {

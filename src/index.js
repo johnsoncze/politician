@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import App from './App'
-import * as serviceWorker from './serviceWorker';
-import {Provider} from 'react-redux';
-import setupStore, {history} from './redux/store';
-import 'typeface-source-serif-pro';
+import * as serviceWorker from './serviceWorker'
+import {Provider} from 'react-redux'
+import setupStore, {history} from './redux/store'
 import { ConnectedRouter } from 'connected-react-router'
+import 'typeface-source-serif-pro'
+import 'typeface-saira-condensed'
 
 const store = setupStore()
 

@@ -1,0 +1,52 @@
+$cl-salmon: #ffe5e5;
+$cl-dark: #000;
+$cl-condensed: #1A1A1A;
+$cl-light: #404040;
+$cl-lightgray: #999;
+
+$cl-primaryText: #13548f;
+$cl-primary: #307abe;
+$cl-primaryLight: #ecf1f6;
+
+@mixin headerTitle {
+  font-weight: 600;
+  font-size: 33px;
+  line-height: 120%;
+}
+
+@mixin lightTitle {
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 140%;
+}
+
+@mixin subTitle {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 140%;
+}
+
+@mixin condensedTitle {
+  font-family: 'Saira Condensed';
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 100%;
+}
+
+@mixin featureText {
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 150%;
+}
+
+@mixin regularText {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 140%;
+}
+
+@mixin smallText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+}
