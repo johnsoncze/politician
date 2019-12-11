@@ -12,7 +12,10 @@ import {
 } from '../actions'
 import {getSearchQuery} from '../selectors'
 import API from '../../services/api'
+import API_MOCK from '../../services/apiMock'
 import { push } from 'connected-react-router'
+
+const api = process.env.REACT_APP_USE_API_MOCK ? API_MOCK : API
 
 function* handleSearch(action) {
   const query = yield select(getSearchQuery)
@@ -23,7 +26,7 @@ function* handleSearch(action) {
   yield put(searchStarted())
   yield put(push('/'))
   try {
-    const {persons} = yield call(API.search, query)
+    const {persons} = yield call(api.search, query)
     yield put(setSearchResults(persons))
   } catch (error) {
     yield put(setSearchResults([]))
@@ -35,9 +38,9 @@ function* handleSearch(action) {
 function* handleLoadDetail(action) {
   yield put(loadingDetailStarted())
   try {
-    const detail = yield call(API.fetchDetail, action.payload.id)
+    const detail = yield call(api.fetchDetail, action.payload.id)
     yield put(setDetail(detail))
-    const {news} = yield call(API.fetchNews, action.payload.id)
+    const {news} = yield call(api.fetchNews, action.payload.id)
     yield put(setDetailNews(news))
   } catch (error) {
     // TODO asi vymyslet nejaky jednotny error handling idealne i s designem
