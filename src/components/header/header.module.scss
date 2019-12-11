@@ -20,14 +20,22 @@
   display: flex;
   align-items: center;
 }
-.logo {
+.logoLink {
   margin-right: 30px;
   width: 216px;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 100%;
 }
 .link {
   @include linkBtn;
   position: relative;
   margin-right: 30px;
   text-decoration: none;
+}
+.headerSearchBar {
+  width: 470px;
 }
 

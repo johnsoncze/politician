@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { setSearchQuery, search } from '../../redux/actions'
 import { getSearchQuery } from '../../redux/selectors'
 import classnames from 'classnames'
+import styles from './searchBar.module.scss'
 
 function SearchBar({ setSearchQuery, search, query, wrapperClassname }) {
   const onSubmit = useCallback((e) => {
@@ -15,9 +16,9 @@ function SearchBar({ setSearchQuery, search, query, wrapperClassname }) {
   }, [setSearchQuery])
   return (
     <form onSubmit={onSubmit}>
-      <div className={classnames('searchBar-wrapper', wrapperClassname)}>
-        <input className='searchBar-input' onChange={onChange} value={query}></input>
-        <button type='submit' className='searchBar-button'>Hledat Politika/čku</button>
+      <div className={classnames(styles.wrapper, wrapperClassname)}>
+        <input className={styles.input} onChange={onChange} value={query}></input>
+        <button type='submit' className={styles.searchBtn}>Hledat Politika/čku</button>
       </div>
     </form>
   );

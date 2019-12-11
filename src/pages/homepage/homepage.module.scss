@@ -6,14 +6,10 @@
 }
 .wrapper {
   margin: 0 auto;
-  max-width: 1170px;
+  max-width: 770px;
 }
-.intro {
-  margin: 0 auto;
-  max-width: 570px;
-}
-.title {
-  @include headerTitle;
+.logo {
+  width: 270px;
 }
 .perex {
   @include featureText;

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {getSearchResults, isSearchLoading} from '../../redux/selectors'
 import LoadingBar from '../loadingBar/loadingBar'
+import styles from './result.module.scss'
 
 function ResultRow({result}) {
 	return (<div>
@@ -28,7 +29,7 @@ function Result({results, loading}) {
       {!loading && results && !!results.length &&
         <div>
           <div>Nalezeni {results.length} politici</div>
-          <div className='result-list'>{results.map(result => <ResultRow key={result.id} result={result} />)}</div>
+          <div className={styles.list}>{results.map(result => <ResultRow key={result.id} result={result} />)}</div>
         </div>}
 		</React.Fragment>
   )

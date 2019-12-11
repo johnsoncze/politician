@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchBar from '../../components/searchBar/searchBar'
 import Result from '../../components/result/result'
+import logo from '../../assets/images/logo.png'
 import styles from './homepage.module.scss'
 
 // TODO loading pri vyhledavani
@@ -9,7 +10,7 @@ function Homepage() {
     <div className={styles.homepage}>
       <div className={styles.wrapper}>
         <div className={styles.intro}>
-          <h1 className={styles.title}>Našipolitici.cz</h1>
+          <img src={logo} alt={logo} className={styles.logo}/>
           <div className={styles.perex}>Mapujeme stav korupce v ČR a aktivně přispíváme k jejímu omezování. Hledejte političky a politiky.</div>
         </div>
         <SearchBar/>

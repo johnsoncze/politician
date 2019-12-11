@@ -11,12 +11,14 @@ function Header() {
     <header className={styles.header}>
       <div className={styles.wrapper}>
         <div className={styles.navigation}>
-          <img src={logo} alt={logo} className={styles.logo}/>
+          <Link to='/' className={styles.logoLink}>
+            <img src={logo} alt={logo} className={styles.logo}/>
+          </Link>
           <Link to='/' className={styles.link}>Home</Link>
           <Link to='/o-projektu' className={styles.link}>O Projektu</Link>
           <Link to='/pro-media' className={styles.link}>Pro Média</Link>
         </div>
-        {!match.isExact && <SearchBar wrapperClassname='searchBar-wrapper-header'/>}
+        {!match.isExact && <SearchBar wrapperClassname={styles.headerSearchBar}/>}
       </div>
     </header>
   )
