@@ -1,15 +1,6 @@
 @import './assets/styles/vendor.scss';
 
-h1 {
-  @include headerTitle;
-}
-
-h2 {
-  @include condensedTitle;
-}
-
 .body {
-  margin: 0 auto;
   text-align: left;
   @include regularText;
 }
@@ -18,6 +9,13 @@ h2 {
   display: flex;
   flex-direction: column;
   text-align: center;
+  background-color: $clBackground;
+}
+
+.about-wrapper {
+  margin: 0 auto;
+  width: 1170px;
+  padding: 230px 0;
 }
 
 .App-logo {

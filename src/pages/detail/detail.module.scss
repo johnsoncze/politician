@@ -1,20 +1,111 @@
+@import '../../App.scss';
+
 .body {
-  margin-top: 24px;
+  margin: 24px auto 0;
   display: flex;
+  width: 1170px;
 }
+
+.heading {
+  @include condensedTitle;
+  margin: 0 20px 24px;
+  padding: 24px;;
+  background: #fff;
+  .wrapper {
+    position: relative;
+    margin: 0 auto;
+    padding-left: 200px;
+    max-width: 1170px;
+    display: flex;
+    width: 970px;
+  }
+  .photo {
+    position: absolute;
+    left: 0;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+  }
+  .fullname,
+  .birthYear {
+    margin-right: 10px;
+  }
+  .currentParty {
+    margin-left: 10px;
+  }
+}
+
 .menu {
-  width: 20%;
+  margin: 142px 30px 0 0;
+  min-width: 170px;
+  max-width: 170px;
 }
 
-.detailBox {
-  padding: 30px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.tableRow {
+.section {
   display: flex;
+  flex-direction: column;
+  .title {
+    @include lightTitle;
+    margin-bottom: 36px;
+  }
+  .subtitle {
+    @include subTitle;
+    margin-bottom: 10px;
+  }
+}
+.widgets {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.widget {
+  margin-bottom: 36px;
+  padding: 30px;
+  width: 48%;
+  border-top: 2px solid $clDarkBorder;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  background-color: #fff;
+  .header {
+    @include condensedTitle;
+    margin-bottom: 24px;
+  }
+}
+.widgetWithTable {
+  .tableRow {
+    margin: 0 -10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
 
-  & > * {
-    border: 1px solid;
+    &:nth-child(even) {
+      background-color: $clTableRow;
+    }
+  }
+  .name {
+    max-width: 40%;
+    min-width: 40%;
+  }
+  .tableSection {
+    margin-bottom: 20px;
+  }
+}
+
+.roles {
+  .tableRow {
+    justify-content: flex-start;
+  }
+}
+
+.insolvency {
+  .tableRow {
+    &:nth-child(even) {
+      background-color: #fff;
+    }
+
+    &:nth-child(odd) {
+      background-color: $clTableRow;
+    }
   }
 }

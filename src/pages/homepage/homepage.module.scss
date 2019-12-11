@@ -1,7 +1,21 @@
+@import '../../App.scss';
+
 .homepage {
   margin: 0 auto;
   padding: 230px 0;
 }
+.wrapper {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+.intro {
+  margin: 0 auto;
+  max-width: 570px;
+}
+.title {
+  @include headerTitle;
+}
 .perex {
+  @include featureText;
   margin: 20px 0 50px;
 }

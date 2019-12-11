@@ -5,9 +5,11 @@ export const getSearchResults = store => store.app.searchResults
 export const isSearchLoading = store => store.app.loadingSearch
 export const isDetailLoading = store => store.app.loadingDetail
 export const getDetailData = store => store.app.detail
+export const getPhotoUrl = store => getDetailData(store).photoUrl
 export const getDetailNewsRaw = store => store.app.detailNews
 export const getPersonalInsolvency = store => getDetailData(store).personalInsolvency
 export const getCompanyInsolvency = store => getDetailData(store).companyInsolvency
+
 
 
 // time: 1575877873,

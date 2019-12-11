@@ -7,10 +7,14 @@ import styles from './homepage.module.scss'
 function Homepage() {
   return (
     <div className={styles.homepage}>
-      <h1>Našipolitici.cz</h1>
-      <div className={styles.perex}>Mapujeme stav korupce v ČR a aktivně přispíváme k jejímu omezování. Hledejte političky a politiky.</div>
-      <SearchBar/>
-      <Result />
+      <div className={styles.wrapper}>
+        <div className={styles.intro}>
+          <h1 className={styles.title}>Našipolitici.cz</h1>
+          <div className={styles.perex}>Mapujeme stav korupce v ČR a aktivně přispíváme k jejímu omezování. Hledejte političky a politiky.</div>
+        </div>
+        <SearchBar/>
+        <Result />
+      </div>
     </div>
   )
 }
