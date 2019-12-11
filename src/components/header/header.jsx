@@ -1,16 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom"
 import SearchBar from '../searchBar/searchBar'
+import logo from '../../assets/images/logo.png'
+import styles from './header.module.scss'
 
 function Header() {
   const match = useRouteMatch('/')
   return (
-    <header className='header-wrapper'>
-      <Link to="/">Home</Link>
-      <Link to="/o-projektu">O Projektu</Link>
-      <Link to="/pro-media">Pro Média</Link>
-      {!match.isExact && <SearchBar wrapperClassname='searchBar-wrapper-header'/>}
+    <header className={styles.header}>
+      <div className={styles.wrapper}>
+        <div className={styles.navigation}>
+          <img src={logo} alt={logo} className={styles.logo}/>
+          <Link to='/' className={styles.link}>Home</Link>
+          <Link to='/o-projektu' className={styles.link}>O Projektu</Link>
+          <Link to='/pro-media' className={styles.link}>Pro Média</Link>
+        </div>
+        {!match.isExact && <SearchBar wrapperClassname='searchBar-wrapper-header'/>}
+      </div>
     </header>
   )
 }

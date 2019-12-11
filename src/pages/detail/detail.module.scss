@@ -18,6 +18,7 @@
     max-width: 1170px;
     display: flex;
     width: 970px;
+    box-sizing: content-box;
   }
   .photo {
     position: absolute;

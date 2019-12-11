@@ -1,0 +1,33 @@
+@import '../../App.scss';
+
+.header {
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  box-shadow: inset 0 -1px 0 $clBorder;
+  background-color: #fff;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1170px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigation {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  margin-right: 30px;
+  width: 216px;
+}
+.link {
+  @include linkBtn;
+  position: relative;
+  margin-right: 30px;
+  text-decoration: none;
+}
+
