@@ -1,4 +1,70 @@
-.list {
+@import '../../App.scss';
+
+.results {
   display: flex;
-  flex-direction: column;
+  flex-direction: column
+}
+
+.resultRow {
+  display: flex;
+  padding: 30px;
+  box-shadow: inset 0 1px 0 #e5e5e5;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+}
+
+.name {
+  @include headerTitle;
+}
+
+.pictureWrapper {
+  margin-right: 30px;
+}
+
+.dataWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.nameWrapper {
+  width: 75%;
+}
+
+.linkWrapper {
+  width: 25%;
+}
+
+.link {
+  @include linkBtn;
+  position: relative;
+  margin-right: 30px;
+  text-decoration: none;
+}
+
+.count {
+  @include condensedTitle;
+  margin: 0 0 17px 30px;
+}
+
+.birthYear, .currentParty {
+  @include featureText;
+}
+
+.birthYear {
+  margin-right: 6px;
+  &:before {
+    content: '*'
+  }
+}
+
+.currentParty {
+  &:before {
+    margin-right: 6px;
+    content: '\2022'
+  }
+}
+
+.infoWrapper {
+  display: flex;
 }

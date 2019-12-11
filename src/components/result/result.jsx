@@ -4,15 +4,26 @@ import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {getSearchResults, isSearchLoading} from '../../redux/selectors'
 import LoadingBar from '../loadingBar/loadingBar'
+import ProfilePicture from '../profilePicture/profilePicture'
 import styles from './result.module.scss'
 
 function ResultRow({result}) {
-	return (<div>
-		<img src={result.photoUrl} alt={result.lastName}/>
-		<div>{result.firstName} {result.lastName}</div>
-		<div>{result.birthYear}</div>
-		<div>{result.currentParty}</div>
-		<Link to={`/detail/${result.id}`}>Zobrazit profil</Link>
+	return (<div className={styles.resultRow}>
+    <div className={styles.pictureWrapper} >
+		  <ProfilePicture src={result.photoUrl} alt={result.lastName}/>
+    </div>
+    <div className={styles.dataWrapper}>
+      <div className={styles.nameWrapper}>
+        <div className={styles.name}>{result.firstName} {result.lastName}</div>
+        <div className={styles.infoWrapper}>
+          {result.birthYear && <div className={styles.birthYear}>{result.birthYear}</div>}
+          {result.currentParty && <div className={styles.currentParty}>{result.currentParty}</div>}
+        </div>
+      </div>
+      <div className={styles.linkWrapper}>
+        <Link className={styles.link} to={`/detail/${result.id}`}>Zobrazit profil</Link>
+      </div>
+    </div>
 	</div>)
 }
 
@@ -28,8 +39,8 @@ function Result({results, loading}) {
       {!loading && results && results.length === 0 && <EmptyState />}
       {!loading && results && !!results.length &&
         <div>
-          <div>Nalezeni {results.length} politici</div>
-          <div className={styles.list}>{results.map(result => <ResultRow key={result.id} result={result} />)}</div>
+          <div class={styles.count}>Nalezeni {results.length} politici</div>
+          <div className={styles.results}>{results.map(result => <ResultRow key={result.id} result={result} />)}</div>
         </div>}
 		</React.Fragment>
   )

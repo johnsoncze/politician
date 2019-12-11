@@ -17,6 +17,7 @@ import {
 } from '../../redux/selectors'
 import LoadingBar from '../../components/loadingBar/loadingBar'
 import NewsWidget from '../../components/newsWidget/newsWidget'
+import ProfilePicture from '../../components/profilePicture/profilePicture'
 import styles from './detail.module.scss';
 
 function TableRow(role) {
@@ -60,7 +61,7 @@ function Detail(props) {
         <React.Fragment>
           <div className={styles.heading}>
             <div className={styles.wrapper}>
-              <img src={props.photoUrl} className={styles.photo} alt='politician face'/>
+            <ProfilePicture src={props.photoUrl} name={props.fullname} />
               <div className={styles.fullname}>{props.fullname}</div>
               <div className={styles.birthYear}>*{props.birthYear}</div>
               <div className={styles.currentParty}>{props.currentParty}</div>

@@ -9,15 +9,7 @@ export const getPhotoUrl = store => getDetailData(store).photoUrl
 export const getDetailNewsRaw = store => store.app.detailNews
 export const getPersonalInsolvency = store => getDetailData(store).personalInsolvency
 export const getCompanyInsolvency = store => getDetailData(store).companyInsolvency
-
-
-
-// time: 1575877873,
-// web: "https://www.e15.cz/domaci/reverse-charge-celi-kritice-jde-proti-planovanym-reformam-vyberu-dph-tvrdi-jeji-odpurci-1364923",
-// headline: "Reverse charge čelí kritice. Jde proti plánovaným reformám výběru DPH, tvrdí její odpůrci",
-// source: "www.e15.cz",
-// lang: "cs"
-
+export const wasSearched = store => !!getSearchResults(store)
 
 export const getDetailNews = createSelector(getDetailNewsRaw, (news) => {
   return news.map(a => ({

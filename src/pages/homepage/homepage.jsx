@@ -1,23 +1,29 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {createStructuredSelector} from 'reselect'
 import SearchBar from '../../components/searchBar/searchBar'
 import Result from '../../components/result/result'
 import logo from '../../assets/images/logo.png'
+import {wasSearched} from '../../redux/selectors'
 import styles from './homepage.module.scss'
 
 // TODO loading pri vyhledavani
-function Homepage() {
+function Homepage(props) {
   return (
     <div className={styles.homepage}>
       <div className={styles.wrapper}>
-        <div className={styles.intro}>
+        {!props.wasSearched && <div className={styles.intro}>
           <img src={logo} alt={logo} className={styles.logo}/>
           <div className={styles.perex}>Mapujeme stav korupce v ČR a aktivně přispíváme k jejímu omezování. Hledejte političky a politiky.</div>
-        </div>
-        <SearchBar/>
+        </div>}
+        <div className={styles.searchWrapper}><SearchBar/></div>
         <Result />
       </div>
     </div>
   )
 }
 
-export default Homepage;
+const mapStateToProps = createStructuredSelector({wasSearched})
+
+export default connect(mapStateToProps)(Homepage);
+
