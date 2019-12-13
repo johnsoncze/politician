@@ -3,6 +3,7 @@ import {createStructuredSelector} from 'reselect'
 import { connect } from 'react-redux'
 import { ReactComponent as ShareBtn } from '../../assets/images/share.svg';
 import { ReactComponent as ReportBtn } from '../../assets/images/report.svg';
+import { ReactComponent as Divider } from '../../assets/images/detailDivider.svg';
 import {loadDetail} from '../../redux/actions'
 import {
   getFullName,
@@ -51,7 +52,10 @@ function Detail(props) {
             <div className={styles.menu}>menu</div>
             <div className={styles.detail}>
               <div className={styles.section}>
-                <h1 className={styles.title}>Přehled</h1>
+                <div className={styles.titleWrapper}>
+                  <h1 className={styles.title}>Přehled</h1>
+                  <Divider className={styles.titleDivider}/>
+                </div>
                 <div className={styles.widgets}>
                   <div className={styles.widget}>
                     <div className={styles.header}>
@@ -86,14 +90,20 @@ function Detail(props) {
                 </div>
               </div>
               <div className={styles.section}>
-                <h1 className={styles.title}>Kariéra</h1>
+                <div className={styles.titleWrapper}>
+                  <h1 className={styles.title}>Kariéra</h1>
+                  <Divider className={styles.titleDivider}/>
+                </div>
                 <div className={styles.widgets}>
                   <RolesWidget />
                   <DonationsWidget />
                   <InsolvencyWidget />
                 </div>
                 <div className={styles.section}>
-                  <h1 className={styles.title}>Mediální obraz</h1>
+                  <div className={styles.titleWrapper}>
+                    <h1 className={styles.title}>Mediální obraz</h1>
+                    <Divider className={styles.titleDivider}/>
+                  </div>
                   <div className={styles.widgets}>
                     <NewsWidget />
                   </div>

@@ -88,17 +88,26 @@
   max-width: 170px;
 }
 
+.titleWrapper {
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+}
 .section {
   display: flex;
   flex-direction: column;
   .title {
     @include lightTitle;
-    margin-bottom: 36px;
+    margin-right: 20px;
   }
   .subtitle {
     @include subTitle;
     margin-bottom: 10px;
   }
+}
+.titleDivider {
+  display: inline-flex;
+  flex: 1;
 }
 .widgets {
   display: flex;
