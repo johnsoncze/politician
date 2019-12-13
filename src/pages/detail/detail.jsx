@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import {createStructuredSelector} from 'reselect'
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 import { ReactComponent as ShareBtn } from '../../assets/images/share.svg';
 import { ReactComponent as ReportBtn } from '../../assets/images/report.svg';
 import { ReactComponent as Divider } from '../../assets/images/detailDivider.svg';
@@ -49,7 +50,12 @@ function Detail(props) {
             </div>
           </div>
           <div className={styles.body}>
-            <div className={styles.menu}>menu</div>
+            <div className={styles.menu}>
+              <Link to='' className={styles.link}>Přehled</Link>
+              <Link to='' className={styles.link}>Kariéra Politika</Link>
+              <Link to='' className={styles.link}>Angažovanost</Link>
+              <Link to='' className={styles.link}>Mediální Obraz</Link>
+            </div>
             <div className={styles.detail}>
               <div className={styles.section}>
                 <div className={styles.titleWrapper}>
