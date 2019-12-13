@@ -1,1 +1,2 @@
 export const DEFAULT_DONATIONS_LIMIT = 6
+export const DEFAULT_ROLES_LIMIT = 6

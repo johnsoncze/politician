@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect'
 
-import {DEFAULT_DONATIONS_LIMIT} from '../constants'
+import {DEFAULT_DONATIONS_LIMIT, DEFAULT_ROLES_LIMIT} from '../constants'
 
 export const getSearchQuery = store => store.app.searchQuery
 export const getSearchResults = store => store.app.searchResults
@@ -10,6 +10,7 @@ export const getDetailData = store => store.app.detail
 export const getPhotoUrl = store => getDetailData(store).photoUrl
 export const getDetailNewsRaw = store => store.app.detailNews
 export const getShowAllDonations = store => store.app.showAllDonations
+export const getShowAllRoles = store => store.app.showAllRoles
 export const getPersonalInsolvency = store => getDetailData(store).personalInsolvency
 export const getCompanyInsolvency = store => getDetailData(store).companyInsolvency
 export const wasSearched = store => !!getSearchResults(store)
@@ -60,22 +61,26 @@ const groupByYear = (data) => {
 
 export const getDonationsRaw = store => getDetailData(store).donations || []
 export const getDonationsCount = store => getDonationsRaw(store).length
-export const getDonations = createSelector(getDonationsRaw, getShowAllDonations, (donations, show) => {
+export const getDonations = createSelector(getDonationsRaw, getShowAllDonations, (donations, showAll) => {
   let donationsToGroup = [...donations]
-  if (!show) {
+  if (!showAll) {
     const sorted = donationsToGroup.sort((a, b) => b.year - a.year)
     donationsToGroup = sorted.splice(0, DEFAULT_DONATIONS_LIMIT)
   }
   return groupByYear(donationsToGroup)
 })
 
-export const getRolesRaw = store => getDetailData(store).roles
+export const getRolesRaw = store => getDetailData(store).roles || []
+export const getRolesCount = store => getRolesRaw(store).length
 
-export const getRoles = createSelector(getRolesRaw, (roles) => {
-  if (!roles) return []
-  const rolesMap = roles.map((role) => ({
+export const getRoles = createSelector(getRolesRaw, getShowAllRoles, (roles, showAll) => {
+  let rolesMap = roles.map((role) => ({
     ...role,
     year: role.endDate ? role.endDate.substring(0,4) : 9999
   }))
+  if (!showAll) {
+    const sorted = rolesMap.sort((a, b) => b.year - a.year)
+    rolesMap = sorted.splice(0, DEFAULT_ROLES_LIMIT)
+  }
   return groupByYear(rolesMap)
 })
