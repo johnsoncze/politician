@@ -7,7 +7,7 @@ import {wasSearched} from '../../redux/selectors'
 
 import styles from './homepage.module.scss'
 
-import logo from '../../assets/images/logo-np.png'
+import logo from '../../assets/images/logo-np.svg'
 
 // TODO loading pri vyhledavani
 function Homepage(props) {

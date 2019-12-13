@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import {createStructuredSelector} from 'reselect'
 import { connect } from 'react-redux'
 import { ReactComponent as ShareBtn } from '../../assets/images/share.svg';
+import { ReactComponent as ReportBtn } from '../../assets/images/report.svg';
 import {loadDetail} from '../../redux/actions'
 import {
   getFullName,
@@ -53,15 +54,33 @@ function Detail(props) {
                 <h1 className={styles.title}>Přehled</h1>
                 <div className={styles.widgets}>
                   <div className={styles.widget}>
-                    <h2 className={styles.header}>Ve Zkratce</h2>
+                    <div className={styles.header}>
+                      <h2 className={styles.title}>Ve Zkratce</h2>
+                      <div>
+                        {/* <div></div> TODO: tagy */}
+                        <ReportBtn />
+                      </div>
+                    </div>
                     <div className={styles.description}>{props.description}</div>
                   </div>
                   <div className={styles.widget}>
-                    <h2 className={styles.header}>Výroky</h2>
+                    <div className={styles.header}>
+                      <h2 className={styles.title}>Výroky</h2>
+                      <div>
+                        {/* <div></div> TODO: tagy */}
+                        <ReportBtn />
+                      </div>
+                    </div>
                   </div>
                   <div className={styles.widget}>
-                    <h2 className={styles.header}>Kontakty</h2>
-                    <h3 className={styles.subtitle}>Socialni Site</h3>
+                    <div className={styles.header}>
+                      <h2 className={styles.title}>Kontakty</h2>
+                      <div>
+                        {/* <div></div> TODO: tagy */}
+                        <ReportBtn />
+                      </div>
+                    </div>
+                    <h3 className={styles.subtitle}>Sociální Sítě</h3>
                     <h3 className={styles.subtitle}>Web</h3>
                   </div>
                 </div>

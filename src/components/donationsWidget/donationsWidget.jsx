@@ -5,8 +5,10 @@ import { connect } from 'react-redux'
 import classnames from 'classnames'
 import {getDonations, getShowAllDonations, getDonationsCount} from '../../redux/selectors'
 import {toggleShowAllDonations} from '../../redux/actions'
-import styles from './donationsWidget.module.scss'
+import { ReactComponent as ReportBtn } from '../../assets/images/report.svg';
 import {DEFAULT_DONATIONS_LIMIT} from '../../constants'
+
+import styles from './donationsWidget.module.scss'
 
 const EmptyState = () => {
   return (<div>Empty</div>)
@@ -46,7 +48,13 @@ const DonationsWidget = ({donationsGroups, showAll, toggleShowAllDonations, dona
 
   return (
     <div className={classnames(styles.widget, styles.widgetWithTable)}>
-      <h2 className={styles.header}>Sponzorství</h2>
+      <div className={styles.header}>
+        <h2 className={styles.title}>Sponzorství</h2>
+        <div>
+          {/* <div></div> TODO: tagy */}
+          <ReportBtn />
+        </div>
+      </div>
       {donationsGroups.length > 0 && <Donations
         donationsGroups={donationsGroups}
         showAll={showAll}

@@ -1,12 +1,14 @@
 import React from 'react'
 import classnames from 'classnames'
-import styles from './insolvencyWidget.module.scss'
 import { connect } from 'react-redux'
+import { ReactComponent as ReportBtn } from '../../assets/images/report.svg';
 import {createStructuredSelector} from 'reselect'
 import {
   getPersonalInsolvency,
   getCompanyInsolvency,
 } from '../../redux/selectors'
+
+import styles from './insolvencyWidget.module.scss'
 
 
 function InsolvencyRow(insolvency) {
@@ -30,7 +32,13 @@ function InsolvencyRow(insolvency) {
 const InsolvencyWidget = ({personalInsolvency, companyInsolvency}) => {
   return (
     <div className={classnames(styles.widget, styles.widgetWithTable, styles.insolvency)}>
-      <h2 className={styles.header}>Insolvence</h2>
+      <div className={styles.header}>
+        <h2 className={styles.title}>Insolvence</h2>
+        <div>
+          {/* <div></div> TODO: tagy */}
+          <ReportBtn />
+        </div>
+      </div>
       {personalInsolvency && companyInsolvency &&
         <React.Fragment>
           <InsolvencyRow title='věřitelem' personalInsolvency={personalInsolvency.creditor} companyInsolvency={companyInsolvency.creditor}/>

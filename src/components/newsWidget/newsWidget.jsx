@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {createStructuredSelector} from 'reselect'
 import { connect } from 'react-redux'
+import { ReactComponent as ReportBtn } from '../../assets/images/report.svg';
 import {getDetailNews} from '../../redux/selectors'
 
 import styles from './newsWidget.module.scss'
@@ -43,7 +44,13 @@ const NewsWidget = ({news}) => {
   return (
 		<React.Fragment>
       <div className={styles.widget}>
-        <h2 className={styles.header}>V médiích</h2>
+        <div className={styles.header}>
+          <h2 className={styles.title}>V médiích</h2>
+          <div>
+            {/* <div></div> TODO: tagy */}
+            <ReportBtn />
+          </div>
+        </div>
         {news.length > 0 && <Articles articles={news} />}
         {!news.length && <EmptyState />}
       </div>

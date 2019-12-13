@@ -3,10 +3,12 @@ import React from 'react'
 import {createStructuredSelector} from 'reselect'
 import { connect } from 'react-redux'
 import classnames from 'classnames'
+import { ReactComponent as ReportBtn } from '../../assets/images/report.svg';
 import {getRoles, getShowAllRoles, getRolesCount} from '../../redux/selectors'
 import {toggleShowAllRoles} from '../../redux/actions'
-import styles from './rolesWidget.module.scss'
 import {DEFAULT_ROLES_LIMIT} from '../../constants'
+
+import styles from './rolesWidget.module.scss'
 
 const EmptyState = () => {
   return (<div>Empty</div>)
@@ -46,7 +48,13 @@ const RolesWidget = ({rolesGroups, showAll, toggleShowAllRoles, rolesCount}) => 
 
   return (
     <div className={classnames(styles.widget, styles.roles, styles.widgetWithTable)}>
-      <h2 className={styles.header}>Role</h2>
+      <div className={styles.header}>
+        <h2 className={styles.title}>Role</h2>
+        <div>
+          {/* <div></div> TODO: tagy */}
+          <ReportBtn />
+        </div>
+      </div>
       {rolesGroups.length && <Roles
         rolesGroups={rolesGroups}
         showAll={showAll}

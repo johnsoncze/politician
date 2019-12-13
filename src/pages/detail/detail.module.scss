@@ -115,6 +115,10 @@
   box-sizing: border-box;
   background-color: #fff;
   .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .title {
     @include condensedTitle;
     margin-bottom: 24px;
   }

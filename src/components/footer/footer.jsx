@@ -1,10 +1,9 @@
 import React from 'react'
 import { ReactComponent as FBLogo } from '../../assets/images/social-fb.svg';
 import { ReactComponent as TWLogo } from '../../assets/images/social-tw.svg';
+import { ReactComponent as LogoNP } from '../../assets/images/logo-np.svg';
 
 import styles from './footer.module.scss'
-
-import logo from '../../assets/images/logo-np.png'
 
 function Footer () {
   return (
@@ -68,7 +67,7 @@ function Footer () {
       </div>
       <div className={styles.bottom}>
         <div className={styles.bottomWrapper}>
-          <img src={logo} alt={logo} className={styles.logo}/>
+          <LogoNP className={styles.logo}/>
           <div>
             <div className={styles.link}>Zásady zpracování osobních údajů</div>
           </div>
