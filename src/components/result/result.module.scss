@@ -6,12 +6,17 @@
 }
 
 .resultRow {
-  display: flex;
   padding: 30px;
   box-shadow: inset 0 1px 0 #e5e5e5;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.02);
+  text-decoration: none;
+
+  &:nth-child(odd) {
+    background-color: $clTableRow;
   }
+}
+
+.resultItem {
+  display: flex;
 }
 
 .name {
@@ -23,23 +28,20 @@
 }
 
 .dataWrapper {
+  padding-top: 30px;
   display: flex;
-  width: 100%;
-}
-
-.nameWrapper {
-  width: 75%;
-}
-
-.linkWrapper {
-  width: 25%;
+  justify-content: space-between;
+  flex: 1;
 }
 
 .link {
   @include linkBtn;
+  height: 39px;
+  line-height: 53px;
+  color: $clPrimary;
 
   &:after {
-    background-color: #000;
+    background-color: $clPrimary;
   }
 }
 
@@ -48,24 +50,29 @@
   margin: 0 0 17px 30px;
 }
 
-.birthYear, .currentParty {
-  @include featureText;
+.initialsWrapper {
+  @include regularText;
+  margin-top: 8px;
+  display: flex;
+  align-items: baseline;
 }
 
-.birthYear {
-  margin-right: 6px;
-  &:before {
-    content: '*'
-  }
+.birthYear,
+.currentParty {
+  margin-right: 10px;
+  color: $clDark;
 }
 
 .currentParty {
-  &:before {
-    margin-right: 6px;
-    content: '\2022'
-  }
+  margin-left: 10px;
 }
 
-.infoWrapper {
-  display: flex;
+.divider {
+  position: relative;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  background-color: #000;
+  border-radius: 50%;
+  opacity: .2;
 }

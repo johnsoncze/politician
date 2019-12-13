@@ -24,6 +24,7 @@ $clPrimaryLight: #ecf1f6;
   font-weight: 600;
   font-size: 33px;
   line-height: 120%;
+  color: #000;
 }
 @mixin lightTitle {
   font-weight: 400;
@@ -35,6 +36,7 @@ $clPrimaryLight: #ecf1f6;
   font-weight: 700;
   font-size: 17px;
   line-height: 140%;
+  color: #000;
 }
 @mixin condensedTitle {
   font-family: 'Saira Condensed';
@@ -42,21 +44,25 @@ $clPrimaryLight: #ecf1f6;
   font-size: 21px;
   line-height: 100%;
   text-transform: uppercase;
+  color: #000;
 }
 @mixin featureText {
   font-weight: 400;
   font-size: 21px;
   line-height: 150%;
+  color: #000;
 }
 @mixin regularText {
   font-weight: 400;
   font-size: 17px;
   line-height: 140%;
+  color: #000;
 }
 @mixin smallText {
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
+  color: #000;
 }
 
 //
