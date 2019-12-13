@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useRouteMatch } from "react-router-dom"
 import SearchBar from '../searchBar/searchBar'
-import logo from '../../assets/images/logo.png'
+import logo from '../../assets/images/logo-np.png'
 import styles from './header.module.scss'
 
 function Header() {

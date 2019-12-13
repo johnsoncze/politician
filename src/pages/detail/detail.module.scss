@@ -1,5 +1,9 @@
 @import '../../App.scss';
 
+.detail {
+  background-color: $clBackground;
+}
+
 .body {
   margin: 24px auto 0;
   display: flex;
@@ -8,8 +12,8 @@
 
 .heading {
   @include condensedTitle;
-  margin: 0 20px 24px;
-  padding: 24px;;
+  margin-bottom: 24px;
+  padding: 24px;
   background: #fff;
   .wrapper {
     position: relative;
@@ -20,19 +24,61 @@
     width: 970px;
     box-sizing: content-box;
   }
-  .photo {
-    position: absolute;
-    left: 0;
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-  }
   .fullname,
   .birthYear {
     margin-right: 10px;
   }
+  .birthYear,
+  .currentParty {
+    color: $clDark;
+  }
+  .fullname {
+    @include headerTitle;
+  }
   .currentParty {
     margin-left: 10px;
+  }
+}
+.photo {
+  position: absolute;
+  left: 0;
+}
+.initials,
+.initialsWrapper {
+  display: flex;
+  flex: 1;
+}
+.initials {
+  align-items: center;
+}
+.initialsWrapper {
+  @include regularText;
+  align-items: baseline;
+}
+.divider {
+  position: relative;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  background-color: #000;
+  border-radius: 50%;
+  opacity: .2;
+}
+.shareWrapper {
+  display: flex;
+  align-content: center;
+}
+.shareIcon {
+  width: 24px;
+}
+.shareBtn {
+  @include linkBtn;
+  margin-left: 8px;
+  color: $clPrimary;
+  text-transform: capitalize;
+
+  &:after {
+    background-color: $clPrimary;
   }
 }
 

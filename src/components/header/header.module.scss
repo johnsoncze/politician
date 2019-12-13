@@ -35,8 +35,13 @@
   position: relative;
   margin-right: 30px;
   text-decoration: none;
+
+  &:after {
+    background-color: #000;
+  }
 }
 .headerSearchBar {
   width: 470px;
+  height: 40px;
 }
 

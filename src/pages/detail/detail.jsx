@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import {createStructuredSelector} from 'reselect'
 import { connect } from 'react-redux'
+import { ReactComponent as ShareBtn } from '../../assets/images/share.svg';
 import classnames from 'classnames'
 import {loadDetail} from '../../redux/actions'
 import {
@@ -55,23 +56,32 @@ function Detail(props) {
     loadDetail(id)
   }, [loadDetail, id]);
   return (
-		<React.Fragment>
+		<div className={styles.detail}>
 			{props.isLoading && <LoadingBar />}
 			{!props.isLoading &&
         <React.Fragment>
           <div className={styles.heading}>
             <div className={styles.wrapper}>
-            <ProfilePicture src={props.photoUrl} name={props.fullname} />
-              <div className={styles.fullname}>{props.fullname}</div>
-              <div className={styles.birthYear}>*{props.birthYear}</div>
-              <div className={styles.currentParty}>{props.currentParty}</div>
+              <ProfilePicture src={props.photoUrl} name={props.fullname} customClassName={styles.photo} />
+              <div className={styles.initials}>
+                <div className={styles.initialsWrapper}>
+                  <div className={styles.fullname}>{props.fullname}</div>
+                  <div className={styles.birthYear}>*{props.birthYear}</div>
+                  <div className={styles.divider}></div>
+                  <div className={styles.currentParty}>{props.currentParty}</div>
+                </div>
+                <div className={styles.shareWrapper}>
+                  <ShareBtn className={styles.shareIcon}/>
+                  <div className={styles.shareBtn}>Sdílet</div>
+                </div>
+              </div>
             </div>
           </div>
           <div className={styles.body}>
             <div className={styles.menu}>menu</div>
             <div className={styles.detail}>
               <div className={styles.section}>
-                <h1 className={styles.title}>Prehled</h1>
+                <h1 className={styles.title}>Přehled</h1>
                 <div className={styles.widgets}>
                   <div className={styles.widget}>
                     <h2 className={styles.header}>Ve Zkratce</h2>
@@ -140,7 +150,7 @@ function Detail(props) {
           </div>
         </React.Fragment>
       }
-		</React.Fragment>
+		</div>
   );
 }
 

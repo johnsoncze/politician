@@ -37,9 +37,10 @@
 
 .link {
   @include linkBtn;
-  position: relative;
-  margin-right: 30px;
-  text-decoration: none;
+
+  &:after {
+    background-color: #000;
+  }
 }
 
 .count {

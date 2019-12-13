@@ -3,9 +3,11 @@ import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 import SearchBar from '../../components/searchBar/searchBar'
 import Result from '../../components/result/result'
-import logo from '../../assets/images/logo.png'
 import {wasSearched} from '../../redux/selectors'
+
 import styles from './homepage.module.scss'
+
+import logo from '../../assets/images/logo-np.png'
 
 // TODO loading pri vyhledavani
 function Homepage(props) {

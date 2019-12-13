@@ -1,0 +1,37 @@
+@import '../../App.scss';
+
+.article {
+  margin-bottom: 20px;
+}
+.articles {
+  padding-top: 24px;
+  border-top: 1px solid $clBorder;
+}
+.sources {
+  margin-bottom: 8px;
+  display: flex;
+  @include smallText;
+  color: $clDark;
+}
+.source {
+  @include linkBtn;
+  @include smallText;
+}
+.headline {
+  @include linkBtn;
+  @include subTitle;
+  color: $clLight;
+  text-decoration: underline;
+  text-decoration-color: $clBorder;
+
+  &:after { content: none; }
+}
+
+.more {
+  @include linkBtn;
+  color: $clPrimary;
+
+  &:after {
+    background-color: $clPrimary;
+  }
+}
