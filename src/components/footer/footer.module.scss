@@ -28,7 +28,9 @@
   align-items: center;
 }
 .socialLink {
+  @include regularText;
   margin-left: 10px;
+  color: #fff;
 }
 .sponsor {
   font-weight: 600;

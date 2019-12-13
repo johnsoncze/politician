@@ -14,11 +14,11 @@ function Footer () {
           <h3 className={styles.header}>V síti</h3>
           <div className={styles.socialWrapper}>
             <FBLogo />
-            <div className={styles.socialLink}>Naši Politici</div>
+            <a href='https://www.facebook.com/NasiPolitici.cz' rel="noopener noreferrer" target='_blank' className={styles.socialLink}>Naši Politici</a>
           </div>
           <div className={styles.socialWrapper}>
             <TWLogo />
-            <div className={styles.socialLink}>@nasipolitici</div>
+            <a href='https://twitter.com/nasipolitici' rel="noopener noreferrer" target='_blank' className={styles.socialLink}>@nasipolitici</a>
           </div>
         </div>
         <div className={`${styles.column} ${styles.contacts}`}>
