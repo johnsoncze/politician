@@ -1,5 +1,7 @@
 import {createSelector} from 'reselect'
 
+import {DEFAULT_DONATIONS_LIMIT} from '../constants'
+
 export const getSearchQuery = store => store.app.searchQuery
 export const getSearchResults = store => store.app.searchResults
 export const isSearchLoading = store => store.app.loadingSearch
@@ -7,6 +9,7 @@ export const isDetailLoading = store => store.app.loadingDetail
 export const getDetailData = store => store.app.detail
 export const getPhotoUrl = store => getDetailData(store).photoUrl
 export const getDetailNewsRaw = store => store.app.detailNews
+export const getShowAllDonations = store => store.app.showAllDonations
 export const getPersonalInsolvency = store => getDetailData(store).personalInsolvency
 export const getCompanyInsolvency = store => getDetailData(store).companyInsolvency
 export const wasSearched = store => !!getSearchResults(store)
@@ -55,9 +58,16 @@ const groupByYear = (data) => {
   })
 }
 
-export const getDonationsRaw = store => getDetailData(store).donations
-
-export const getDonations = createSelector(getDonationsRaw, (donations) => groupByYear(donations))
+export const getDonationsRaw = store => getDetailData(store).donations || []
+export const getDonationsCount = store => getDonationsRaw(store).length
+export const getDonations = createSelector(getDonationsRaw, getShowAllDonations, (donations, show) => {
+  let donationsToGroup = [...donations]
+  if (!show) {
+    const sorted = donationsToGroup.sort((a, b) => b.year - a.year)
+    donationsToGroup = sorted.splice(0, DEFAULT_DONATIONS_LIMIT)
+  }
+  return groupByYear(donationsToGroup)
+})
 
 export const getRolesRaw = store => getDetailData(store).roles
 

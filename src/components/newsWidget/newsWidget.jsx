@@ -42,8 +42,11 @@ const EmptyState = () => {
 const NewsWidget = ({news}) => {
   return (
 		<React.Fragment>
-      {news.length > 0 && <Articles articles={news} />}
-      {!news.length && <EmptyState />}
+      <div className={styles.widget}>
+        <h2 className={styles.header}>V médiích</h2>
+        {news.length > 0 && <Articles articles={news} />}
+        {!news.length && <EmptyState />}
+      </div>
 		</React.Fragment>
   );
 }

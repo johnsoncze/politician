@@ -39,7 +39,7 @@ function Result({results, loading}) {
       {!loading && results && results.length === 0 && <EmptyState />}
       {!loading && results && !!results.length &&
         <div>
-          <div class={styles.count}>Nalezeni {results.length} politici</div>
+          <div className={styles.count}>Nalezeni {results.length} politici</div>
           <div className={styles.results}>{results.map(result => <ResultRow key={result.id} result={result} />)}</div>
         </div>}
 		</React.Fragment>

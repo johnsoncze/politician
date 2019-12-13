@@ -18,6 +18,7 @@ import {
 } from '../../redux/selectors'
 import LoadingBar from '../../components/loadingBar/loadingBar'
 import NewsWidget from '../../components/newsWidget/newsWidget'
+import DonationsWidget from '../../components/donationsWidget/donationsWidget'
 import ProfilePicture from '../../components/profilePicture/profilePicture'
 import styles from './detail.module.scss';
 
@@ -113,19 +114,7 @@ function Detail(props) {
                       })}
                     </React.Fragment>
                   </div>
-                  <div className={classnames(styles.widget, styles.widgetWithTable)}>
-                    <h2 className={styles.header}>Sponzorstvi</h2>
-                    <React.Fragment>
-                      {props.donations && props.donations.map((group, index) => {
-                        return (
-                          <div className={styles.tableSection} key={index}>
-                            <h3 className={styles.subtitle}>{group.year}</h3>
-                            {group.items.map((item, index) => <TableRow name={item.party} value={item.value} key={index} />)}
-                          </div>
-                        )
-                      })}
-                    </React.Fragment>
-                  </div>
+                  <DonationsWidget />
                   <div className={classnames(styles.widget, styles.widgetWithTable, styles.insolvency)}>
                     <h2 className={styles.header}>Insolvence</h2>
                     {props.personalInsolvency && props.companyInsolvency &&
@@ -139,10 +128,7 @@ function Detail(props) {
                 <div className={styles.section}>
                   <h1 className={styles.title}>Mediální obraz</h1>
                   <div className={styles.widgets}>
-                    <div className={styles.widget}>
-                      <h2 className={styles.header}>V médiích</h2>
-                      <NewsWidget />
-                    </div>
+                    <NewsWidget />
                   </div>
                 </div>
               </div>

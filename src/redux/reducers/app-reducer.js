@@ -7,6 +7,7 @@ import {
   SET_SEARCH_END,
   SET_SEARCH_START,
   SET_DETAIL_NEWS,
+  SET_SHOW_ALL_DONATIONS,
 } from "../action-types";
 
 const initialState = {
@@ -15,7 +16,8 @@ const initialState = {
 	detail: {},
 	detailNews: [],
 	loadingDetail: false,
-	loadingSearch: false,
+  loadingSearch: false,
+  showAllDonations: false,
 };
 
 export default function(state = initialState, action) {
@@ -70,6 +72,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         detailNews: news,
+      };
+    }
+    case SET_SHOW_ALL_DONATIONS: {
+      return {
+        ...state,
+        showAllDonations: !state.showAllDonations,
       };
     }
     default:

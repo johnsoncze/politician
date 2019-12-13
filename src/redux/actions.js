@@ -9,6 +9,7 @@ import {
 	SET_LOADING_DETAIL_END,
   SET_LOADING_DETAIL_START,
   SET_DETAIL_NEWS,
+  SET_SHOW_ALL_DONATIONS,
 } from "./action-types";
 
 export const setSearchQuery = query => ({
@@ -64,4 +65,8 @@ export const setDetailNews = news => ({
   payload: {
     news
   }
+});
+
+export const toggleShowAllDonations = () => ({
+  type: SET_SHOW_ALL_DONATIONS,
 });
